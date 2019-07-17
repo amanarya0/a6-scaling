@@ -43,7 +43,7 @@ module.exports = {
         await waitforseconds(inputs.seconds * 1000);
 
         let TSwsEnd = Date.now().toString();
-        return exits.success({ 'TSwsStart': TSwsStart, 'TSwsEnd': TSwsEnd });
+        return exits.success({ 'TSwsStart': TSwsStart, 'TSwsEnd': TSwsEnd, 'arguments':argument  });
     }
 
 
