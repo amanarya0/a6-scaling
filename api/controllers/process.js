@@ -24,7 +24,12 @@ module.exports = {
 
 
     fn: async function (inputs, exits) {
-
+      
+       let argument = [];
+        process.argv.forEach(function (val, index, array) {
+                 argument.push(val);
+        });
+      
         let TSwsStart = Date.now().toString();
 
         function waitforseconds(seconds) {
