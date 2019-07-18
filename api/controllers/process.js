@@ -25,7 +25,12 @@ module.exports = {
 
 
     fn: async function (inputs, exits) {
-
+      
+       let argument = [];
+        process.argv.forEach(function (val, index, array) {
+                 argument.push(val);
+        });
+      
         let TSwsStart = Date.now().toString();
 
         let chars = [];
@@ -46,7 +51,7 @@ module.exports = {
         parseFile(data);
 
         let TSwsEnd = Date.now().toString();
-        return exits.success({ 'TSwsStart': TSwsStart, 'TSwsEnd': TSwsEnd });
+        return exits.success({ 'TSwsStart': TSwsStart, 'TSwsEnd': TSwsEnd, 'arguments':argument  });
     }
 
 
