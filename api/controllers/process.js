@@ -1,3 +1,4 @@
+const fs = require('fs');
 module.exports = {
 
 
@@ -27,15 +28,22 @@ module.exports = {
 
         let TSwsStart = Date.now().toString();
 
-        function waitforseconds(seconds) {
-            console.log('Waiting');
-            return new Promise(resolve => {
-                setTimeout(resolve, seconds);
-            })
+        let chars = [];
+        function parseFile(buffer) {
+            var fileString = buffer.toString();
+            for (var i = 0; i < fileString.length; i++) {
+                chars.push(fileString.charAt(i));
+            }
+
+            for (var i = 0; i < inputs.seconds * 1000; i++) {
+                console.log(char[i]);
+            }
 
         }
 
-        await waitforseconds(inputs.seconds * 1000);
+        // Source: https://nodejs.org/dist/latest-v6.x/docs/api/fs.html
+        var data = fs.readFileSync(__dirname + '/text.txt', 'utf-8');
+        parseFile(data);
 
         let TSwsEnd = Date.now().toString();
         return exits.success({ 'TSwsStart': TSwsStart, 'TSwsEnd': TSwsEnd });
